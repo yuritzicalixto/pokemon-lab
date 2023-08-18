@@ -8,17 +8,19 @@
 }
 :root {
     --primary-yellow: #ffd602;
-    --primary-red: #f1f1f1;
+    --primary-blue: #1b5f97;
     --primary-blue: #035cb6;    
 }
 body {
     font-family: 'Lato', sans-serif;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    font-weight: 300;
 }
 .page {
-    height: 100vh;
+    overflow: hidden;
+    height: 100%;
     position: relative;
     width: 100%;
 }
@@ -35,14 +37,16 @@ body {
                          "footer  aside";
 }
 .navbar {
-    background: rgb(59, 159, 167);
+    /* background: rgb(59, 159, 167); */
     grid-area: nav;
+    display: flex;
 }
 .navbar__content {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 30px 0 0 80px;
+    /* padding: 30px 0 0 80px; */
+    padding: 0 0 0 80px;
 
     animation: 2s navbar 0.5s ease-in-out;
 }
@@ -65,8 +69,79 @@ body {
     width: 450px;
 }
 .navbar__content ul li a {
-    color: var(--primary-red);
+    color: var(--primary-blue);
+    font-weight: 300; /*700*/
     text-decoration: none;
+}
+.main-content{
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
+    animation: 8s main-content 0.5s ease-in-out;
+}
+
+.main-content p:first-child{
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0 0 -14px 44px;
+}
+
+.main-content h1{
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 28px 0;
+}
+
+.main-content p:last-child{
+    font-weight: 100;
+    margin: 0;
+    width: 60%;
+}
+
+@keyframes main-content {
+    0% {
+        transform: translateY(-600px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.side-content{
+    background: palegoldenrod;
+    display: gird;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+
+    grid-area: aside;
+}
+
+.side-content p{
+    transform: rotate(-90deg);
+    font-size: 36px;
+    /* text-align: center; */
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+
+    opacity: 0;
+
+    animation-name: side-content-text;
+    animation-duration: 0.5s;
+    animation-delay: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes side-content-text {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.side-content img {
+    width: 100%;
 }
 .loader {
     background: rgb(0, 0, 0);
@@ -126,48 +201,3 @@ body {
         visibility: hidden;
     }
 }
-
-
-/* body{
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-}
-
-.page{
-    position: relative;
-    height: 100vh;
-    z-index: 1;
-}
-
-.container {
-    position: absolute;
-
-}
-.loader{
-    background: red;
-    width: 100%;
-    height: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    position:absolute;
-    z-index: 3;
-
-    animation: loader 2s linear forwards;
-}
-
-@keyframes loader {
-0% {
-    opacity: 1;
-    visibility: visible;
-}
-95% {
-    opacity: 1;
-    visibility: visible;
-}
-100%{
-    opacity: 0;
-    visibility: visible;
-}
- } */
