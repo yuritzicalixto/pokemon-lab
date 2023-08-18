@@ -1,0 +1,173 @@
+@font-face {
+    font-family: "Lato";
+    src: url('../assets/fonts/Lato-Thin.woff2') format("woff2"),
+         url('../assets/fonts/Lato-Light.woff2') format("woff2"),
+         url('../assets/fonts/Lato-Bold.woff2') format("woff2");
+    font-weight: 100, 300, 700;
+    font-style: lighter, normal, bold;
+}
+:root {
+    --primary-yellow: #ffd602;
+    --primary-red: #f1f1f1;
+    --primary-blue: #035cb6;    
+}
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+.page {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+.container {
+    position: absolute;
+    z-index:1;
+    width: 100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 50% 30%;
+    grid-template-areas: "nav     aside"
+                         "section aside"
+                         "footer  aside";
+}
+.navbar {
+    background: rgb(59, 159, 167);
+    grid-area: nav;
+}
+.navbar__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0 0 80px;
+
+    animation: 2s navbar 0.5s ease-in-out;
+}
+@keyframes navbar {
+    0% {
+        transform: translateY(-200px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.navbar__content img {
+    width: 50px;
+}
+.navbar__content ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    width: 450px;
+}
+.navbar__content ul li a {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+.loader {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+
+    animation: loader 4s linear forwards;
+}
+.loader div {
+    background: white;
+    border-radius: 50%;;
+    height: 40px;
+    margin: 10px;
+    width: 40px;
+    
+    transform: scale(0);
+    
+    animation: scaling 2s ease-in-out infinite;
+}
+.loader div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.loader div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.loader div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+@keyframes scaling {
+    0%, 100% {
+        transform: scale(0.2);
+    }
+    40% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes loader {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    95% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* body{
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.page{
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+}
+
+.container {
+    position: absolute;
+
+}
+.loader{
+    background: red;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    z-index: 3;
+
+    animation: loader 2s linear forwards;
+}
+
+@keyframes loader {
+0% {
+    opacity: 1;
+    visibility: visible;
+}
+95% {
+    opacity: 1;
+    visibility: visible;
+}
+100%{
+    opacity: 0;
+    visibility: visible;
+}
+ } */
