@@ -25,22 +25,22 @@
              <section class="main-content">
                  <p>Diseña tu</p>
                  <h1>Súper Pokémon!</h1>
-                 <!-- <p>Únase a nosotros para explorar un mundo de creatividad desbordante y descubrimiento científico mientras observamos el emocionante viaje de los Pokémon desde su concepción hasta su máxima expresión evolutiva.</p> -->
                  <p>¡Prepárese para sumergirse en la maravilla y el misterio de estas criaturas únicas en el Laboratorio de Creación Pokémon!</p>
              </section>
              <section class="side-content">
                 <div></div>
-                <p>カビゴン</p>
+                <p>カビゴン!!</p>
                 <img src="./assets/sleep.png" alt="Snorlax">
              </section>
+
              <section class="footer">
-                 <div>
+                 <div id="button1">
                      <img src="./assets/pidgey.png" alt="">
                  </div>
-                 <div>
+                 <div id="button2">
                     <img src="./assets/psyduck.png" alt="">
                 </div>
-                <div>
+                <div id="button3">
                     <img src="./assets/huevo.png" alt="">
                 </div>
              </section>
@@ -52,7 +52,85 @@
              <div></div>
          </section>
         <!-- Modal -->
-        <section ></section>
+        <section class="modal hidden">
+            <div class="modal__content">
+                <img class="modal__content--close"
+                    src="https://img.icons8.com/windows/32/000000/macos-close.png">
+
+                    <div class="modal__content--slider">
+                    <input type="radio" name="slider-1" id="radio-1" checked>
+                    <input type="radio" name="slider-1" id="radio-2">
+                    <input type="radio" name="slider-1" id="radio-3">
+
+                    <div class="cards">
+                    </div>
+
+                    </div>
+                    <button class="button-red">Lo quiero!</button>
+            </div>
+        </section>
     </div>
 </body>
+
+<script>
+    const modal = document.querySelector('.modal');
+    const button1 = document.querySelector('#button1');
+    const button2 = document.querySelector('#button2');
+    const button3 = document.querySelector('#button3');
+    const close = document.querySelector('.modal__content--close');
+
+    const cards = document.querySelector('.cards');
+    button1.addEventListener('click', ()=> {
+        modal.classList.remove('hidden');
+        modal.classList.add('visible');
+        cards.innerHTML= `
+        <label for="radio-1" id="card-1" class="card">
+            <img src="./assets/bullbasaur.png" alt="spiderman 1"/>
+        </label>
+        <label for="radio-2" id="card-2" class="card">
+            <img src="./assets/charmander.png" alt="spiderman 2"/>
+        </label>
+        <label for="radio-3" id="card-3" class="card">
+            <img src="./assets/eevee.png" alt="spiderman 3"/>
+        </label>
+        `
+    });
+    //Button 2
+    button2.addEventListener('click', ()=> {
+        modal.classList.remove('hidden');
+        modal.classList.add('visible');
+        cards.innerHTML= `
+        <label for="radio-1" id="card-1" class="card">
+            <img src="./assets/mankey.png" alt="spiderman 1"/>
+        </label>
+        <label for="radio-2" id="card-2" class="card">
+            <img src="./assets/squirtle.png" alt="spiderman 2"/>
+        </label>
+        <label for="radio-3" id="card-3" class="card">
+            <img src="./assets/snorlax.png" alt="spiderman 3"/>
+        </label>
+        `
+    });
+    //Button3
+    button3.addEventListener('click', ()=> {
+        modal.classList.remove('hidden');
+        modal.classList.add('visible');
+        cards.innerHTML= `
+        <label for="radio-1" id="card-1" class="card">
+            <img src="./assets/1.png" alt="spiderman 1"/>
+        </label>
+        <label for="radio-2" id="card-2" class="card">
+            <img src="./assets/2.png" alt="spiderman 2"/>
+        </label>
+        <label for="radio-3" id="card-3" class="card">
+            <img src="./assets/3.png" alt="spiderman 3"/>
+        </label>
+        `
+    });
+    close.addEventListener('click', ()=> {
+        modal.classList.add('hidden');
+        modal.classList.remove('visible');
+    })
+</script>
+
 </html>
